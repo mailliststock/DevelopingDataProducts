@@ -1,0 +1,42 @@
+mtcars dataset 
+========================================================
+author: Rodrigo
+date: August 24, 2014
+
+Objectives
+========================================================
+
+- Build a simple data analysis.
+- Build a shineapps. 
+- Build a Rpresetation.
+
+Dataset - mtcar
+========================================================
+
+```{r}
+head(mtcars)
+```
+
+Regression Model - Example of Prediction
+========================================================
+
+
+```{r, echo=TRUE}
+ d <- data.frame(cyl = as.numeric({4}), 
+                            wt = {2000}/1000, 
+                            hp = {200}, 
+                            am = as.numeric({1}))
+f <- lm(mpg ~ cyl+hp+wt+am, mtcars)
+p <- predict(f, d, interval = 'prediction', level = .90)
+round(p[1,1])
+```
+
+Plot - "MPG versus HP"
+========================================================
+
+```{r, echo=FALSE}
+      plot(mtcars$hp, mtcars$mpg, 
+           ylab = "MPG", 
+           xlab = "HP")
+```
+
